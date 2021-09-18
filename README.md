@@ -6,7 +6,7 @@
 二，[基础框架搭建](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-base)  
 三，[微服务library-user-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-user)  
 四，[微服务library-book-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-book)  
-五，微服务library-book-grpc-service  
+五，[微服务library-book-grpc-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-book-grpc)
 六，限流  
 七，服务注册与发现  
 八，熔断、降级  
