@@ -9,7 +9,7 @@
 五，[微服务library-book-grpc-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-book-grpc)  
 六，[限流](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-ratelimit)    
 七，[服务注册与发现](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-consul)  
-八，熔断、降级  
+八，[熔断、降级](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-hystrix)  
 九，网关library-apigateway  
 十，分布式链路追踪  
 十一，监控  
