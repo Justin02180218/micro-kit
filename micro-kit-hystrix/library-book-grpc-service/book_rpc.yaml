@@ -1,0 +1,22 @@
+server:
+  port: 10088
+  mode: debug
+  name: "book-rpc-service"
+
+mysql:
+  host: "localhost"
+  port: 3306
+  db: "library"
+  username: "root"
+  password: "123456"
+  debug: true
+
+ratelimit:
+  fillInterval: 1
+  capacity: 3
+
+consul:
+  addr: "http://consul-server:8500"
+  interval: 10s
+  timeout: 1s
+
