@@ -1,0 +1,12 @@
+server:
+  port: 80
+  mode: debug
+  name: "apigateway"
+
+consul:
+  addr: "http://consul-server:8500"
+  interval: "10s"
+  timeout: "1s"
+  client: 
+    retrymax: 3
+    retrytimeout: 500

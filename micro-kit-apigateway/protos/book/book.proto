@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package book;
+
+option go_package = "/book";
+
+message BookInfo {
+    uint64 id = 1;
+    string bookname = 2;
+}
+
+message BooksByUserIDRequest {
+    uint64 userID = 1;
+}
+
+message BooksResponse {
+    repeated BookInfo books = 1;
+}
+
+service Book {
+    rpc FindBooksByUserID (BooksByUserIDRequest) returns (BooksResponse) {}
+}
