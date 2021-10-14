@@ -12,7 +12,7 @@
 八，[熔断、降级](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-hystrix)  
 九，[网关library-apigateway](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-apigateway)  
 十，[分布式链路追踪](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-zipkin)  
-十一，监控  
+十一，[微服务监控](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-prometheus)  
 十二，构建Docker镜像  
 十三，部署到K8S  
 后续未完 。。。。。。  
