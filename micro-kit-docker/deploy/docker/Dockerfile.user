@@ -1,0 +1,14 @@
+FROM golang:alpine AS builder
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.cn,direct
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN CGO_ENABLED=0 GOOS=linux go build -o user-service -a -tags netgo -ldflags '-s -w' ./library-user-service
+
+FROM scratch
+LABEL justin justin@
+COPY --from=builder /app/user-service .
+COPY --from=builder /app/library-user-service/user.yaml .
+EXPOSE  10086
+ENTRYPOINT ["/user-service"]

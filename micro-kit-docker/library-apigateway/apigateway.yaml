@@ -1,0 +1,22 @@
+server:
+  port: 80
+  mode: debug
+  name: "apigateway"
+
+consul:
+  addr: "http://consul-server:8500"
+  interval: "10s"
+  timeout: "1s"
+  client: 
+    retrymax: 3
+    retrytimeout: 500
+
+zipkin:
+  url: "http://zipkin-server:9411/api/v2/spans"
+  service_name: "apigateway"
+  reporter:
+    timeout: 5
+    batch_size: 1000
+    batch_interval: 3
+    max_backlog: 10000
+    
