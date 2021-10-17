@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  labels:
+    svc: user
+    app: service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      svc: user
+      app: service
+  template:
+    metadata:
+      labels:
+        svc: user
+        app: service
+    spec:
+      containers:
+      - name: user-service
+        image: harbor.justin.com/micro-kit/user-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 10086
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 250m
+          limits:
+            memory: 64Mi
+            cpu: 250m
+      initContainers:
+        - command:
+          - sh
+          - -c
+          - until curl -m5 -s consul-ui:80/ui; do echo waiting for config; sleep 5; done;
+          image: hashicorp/consul:1.10.0
+          name: consul-ui

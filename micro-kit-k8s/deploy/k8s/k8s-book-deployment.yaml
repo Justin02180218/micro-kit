@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service
+  labels:
+    svc: book
+    app: service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      svc: book
+      app: service
+  template:
+    metadata:
+      labels:
+        svc: book
+        app: service
+    spec:
+      containers:
+      - name: book-service
+        image: harbor.justin.com/micro-kit/book-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 10087
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 250m
+          limits:
+            memory: 64Mi
+            cpu: 250m
+      initContainers:
+        - command:
+          - sh
+          - -c
+          - until curl -m5 -s consul-ui:80/ui; do echo waiting for config; sleep 5; done;
+          image: hashicorp/consul:1.10.0
+          name: consul-ui

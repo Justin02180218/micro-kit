@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: library-apigateway
+  labels:
+    svc: library
+    app: apigateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      svc: library
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        svc: library
+        app: apigateway
+    spec:
+      containers:
+      - name: library-apigateway
+        image: harbor.justin.com/micro-kit/apigateway:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 250m
+          limits:
+            memory: 64Mi
+            cpu: 250m
+      initContainers:
+        - command:
+          - sh
+          - -c
+          - until curl -m5 -s consul-ui:80/ui; do echo waiting for config; sleep 5; done;
+          image: hashicorp/consul:1.10.0
+          name: consul-ui
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: library-apigateway
+spec:
+  ports:
+  - port: 80
+  selector:
+    svc: library
+    app: apigateway

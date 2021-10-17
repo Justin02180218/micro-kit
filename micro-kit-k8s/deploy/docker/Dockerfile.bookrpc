@@ -1,0 +1,14 @@
+FROM golang:alpine AS builder
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.cn,direct
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN CGO_ENABLED=0 GOOS=linux go build -o book-rpc-service -a -tags netgo -ldflags '-s -w' ./library-book-rpc-service
+
+FROM scratch
+LABEL justin justin@
+COPY --from=builder /app/book-rpc-service .
+COPY --from=builder /app/library-book-rpc-service/book_rpc.yaml .
+EXPOSE  10088
+ENTRYPOINT ["/book-rpc-service"]

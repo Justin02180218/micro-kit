@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-service
+  labels:
+    svc: book
+    app: service
+spec:
+  ports:
+  - name: web
+    port: 10087
+  selector:
+    svc: book
+    app: service
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: book-service
+  labels:
+    team: backend
+spec:
+  endpoints:
+  - port: web
+  # namespaceSelector:
+  #   matchNames:
+  #   - default
+  selector:
+    matchLabels:
+      svc: book
+      app: service

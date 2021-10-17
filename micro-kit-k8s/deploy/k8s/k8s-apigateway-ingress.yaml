@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apigateway-ingress
+spec:
+  rules:
+  - host: api.library.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: library-apigateway
+            port: 
+              number: 80
+  - host: consul.library.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: consul-ui
+            port: 
+              number: 80
+  - host: zipkin.library.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: zipkin-server
+            port: 
+              number: 9411
+  - host: hystrix.library.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hystrix-dashboard
+            port: 
+              number: 9002
+      

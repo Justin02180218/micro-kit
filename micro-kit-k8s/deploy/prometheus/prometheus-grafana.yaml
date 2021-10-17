@@ -1,0 +1,18 @@
+version: '3'
+
+services:    
+ prometheus:
+  image: prom/prometheus
+  ports:
+    - 9090:9090
+  volumes:
+    - /Users/Justin/workspace_go_execise/go-kit-exercise/micro-kit/micro-kit-prometheus/deploy/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+ grafana:
+  image: grafana/grafana
+  ports: 
+    - 3000:3000
+  environment:
+    - GF_SECURITY_ADMIN_PASSWORD=123456
+  volumes: 
+    - /Users/Justin/grafana_db:/var/lib/grafana grafana/grafana
+
