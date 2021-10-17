@@ -14,7 +14,7 @@
 十，[分布式链路追踪](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-zipkin)  
 十一，[微服务监控](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-prometheus)  
 十二，[构建Docker镜像](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-docker)  
-十三，部署到K8S  
+十三，[部署到K8S](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-k8s)  
 后续未完 。。。。。。  
 
 ### 代码详解，请关注微信公众号：coding到灯火阑珊
