@@ -2,7 +2,7 @@
 
 这是关于微服务架构实战的项目，基于Go语言，结合Gin web框架和Go-kit微服务框架。内容包括限流、服务注册与发现、熔断降级、监控和分布式链路追踪、构建docker镜像，部署发布到k8s中。 
 
-一，项目介绍与架构  
+一，[项目介绍与架构](https://mp.weixin.qq.com/s?__biz=Mzg5MjA1ODYzNg==&mid=2247484113&idx=1&sn=f8ffdee22f429c18b696468d5b65ee98&chksm=cfc2afb2f8b526a426c5fe8dd125d3edcf0cefddd4b088cb300d8383cb6e28187d2036206224&token=249966631&lang=zh_CN#rd)  
 二，[基础框架搭建](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-base)  
 三，[微服务library-user-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-user)  
 四，[微服务library-book-service](https://github.com/Justin02180218/micro-kit/tree/master/micro-kit-book)  
